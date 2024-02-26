@@ -1,0 +1,24 @@
+ERROR 1:
+    The stye that we were applying was actually not shown because he havent added styledComponents: true, in our next.config file.
+LOG 1: Please do not use @import CSS syntax in createGlobalStyle at this time, as the CSSOM APIs we use in production do not handle it well.
+       Instead, we recommend using a library such as react-helmet to inject a typical <link> meta tag to the stylesheet, or simply embedding
+       it manually in your index.html <head> section for a simpler app.    
+fix 1:
+    add styledComponents: true, in nex.config file.
+    eg: 
+    const nextConfig = {
+        reactStrictMode: true,
+        compiler: {
+            styledComponents: true,
+             },
+        };    
+
+
+----------------------
+ERROR 2: Failed to load props returned from getServersideProps to component.
+FIX 2 : props are supposed to be sent as string or json. The data fetched from database is a database object so it need to be converted back to json.
+
+
+-----------------------
+ERROR 3: receiveing true for non boolean attribute.
+FIX 3: we can send propsName = {1} if boolean parameter are not accepted as 1 represent true at the receiveing end.

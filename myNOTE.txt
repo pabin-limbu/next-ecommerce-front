@@ -1,0 +1,1 @@
+MONGO DB TIPS: await Product.find({}, null, { sort: { _id: -1 } }); // Parameter: filter(filter by date,name etc),projection(which data is needed),options(what to do with those data)
