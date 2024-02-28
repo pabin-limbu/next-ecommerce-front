@@ -35,7 +35,7 @@ export function CartContextProvider({ children }) {
   }
 
   function clearCart() {
-    console.log("i am learing cart");
+  //  console.log("i am learing cart");
     setCartProducts([]);
   }
 

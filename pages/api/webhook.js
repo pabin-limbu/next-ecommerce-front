@@ -38,7 +38,7 @@ export default async function handler(req, res) {
         await Order.findByIdAndUpdate(orderID, { paid: true });
       }
 
-      console.log(data);
+     console.log(data);
 
       break;
     // ... handle other event types

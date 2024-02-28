@@ -5,7 +5,7 @@ import ProductGrid from "./ProductGrid";
 import Title from "./Title";
 
 export default function NewProducts({ products }) {
-  console.log(products);
+ // console.log(products);
   return (
     <Center>
       <Title>New Arrivals</Title>

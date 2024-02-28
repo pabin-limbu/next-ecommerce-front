@@ -84,7 +84,7 @@ export default function CartPage() {
   }
 
   function lessOfThisProduct(id) {
-    console.log(id);
+    //console.log(id);
     removeProduct(id);
   }
 

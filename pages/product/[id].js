@@ -46,7 +46,7 @@ function ProductsPage({ product }) {
             <PriceRow>
               <div>{product.price}</div>
               <div className="">
-                <Button primary onClick={() => addProduct(product._id)}>
+                <Button primary={1} onClick={() => addProduct(product._id)}>
                   Add to cart
                 </Button>
               </div>
