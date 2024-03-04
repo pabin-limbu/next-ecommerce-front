@@ -4,7 +4,6 @@ import styled, { css } from "styled-components";
 export const ButtonStyle = css`
   border: 0;
   border-radius: 5px;
-  padding: 5px 15px;
   cursor: pointer;
   display: inline-flex;
   margin-right: 5px;
@@ -12,8 +11,10 @@ export const ButtonStyle = css`
   text-decoration: none;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+  background: transparent;
+  color: white;
   svg {
-    height: 16px;
+    height: 40px;
   }
 
   //if props has white and no outilne.
