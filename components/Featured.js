@@ -5,43 +5,57 @@ import Button from "./Button";
 import ButtonLink from "./ButtonLink";
 import CartIcon from "./icons/CartIcon";
 import { CartContext } from "./CartContext";
+import { device } from "@/util/breakpoints";
 
 const Bg = styled.div`
-  background-color: #222;
+  background-color: white;
   color: #fff;
-  padding: 50px 0;
-`;
-
-const Title = styled.h1`
-  margin: 0;
-  font-wight: normal;
-  font-size: 3rem;
-`;
-
-const Desc = styled.p`
-  color: #aaa;
-  font-size: 0.8 rem;
+  padding: 30px 0;
 `;
 
 const ColumnWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
 
-  img {
-    max-width: 100%;
-  }
+  /* img {
+    max-width: 80%;
+  } */
+`;
+const Column = styled.div``;
+
+const Title = styled.h2`
+  text-align: center;
+  color: black;
 `;
 
-const Column = styled.div`
-  display: flex;
-  align-items: center;
+const Desc = styled.p`
+  color: grey;
+  font-weight: 100;
+  font-size: small;
+  text-align: center;
 `;
 
 const ButtonWrapper = styled.div`
   display: flex;
   gap: 10px;
   margin-top: 25px;
+  justify-content: center;
+`;
+
+const ImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  img {
+    max-width: 70%;
+  }
+
+  @media ${device.tablet} {
+    img {
+      max-width: 30%;
+    }
+  }
 `;
 
 export default function Featured({ product }) {
@@ -55,30 +69,26 @@ export default function Featured({ product }) {
       <Center>
         <ColumnWrapper>
           <Column>
-            <div className="">
-              <Title>{product.title}</Title>
-              <Desc>{product.description}</Desc>
+            <Title>{product.title}</Title>
+            <Desc>
+              {product.description} Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Maxime, soluta.
+            </Desc>
+            <ButtonWrapper>
+              <ButtonLink color="blue" href={"/products/" + product._id}>
+                read more
+              </ButtonLink>
 
-              <ButtonWrapper>
-                <ButtonLink
-                  href={"/products/" + product._id}
-                  outline={1}
-                  white={1}
-                >
-                  read more
-                </ButtonLink>
-
-                <Button white={1} onClick={addFeaturedToCart}>
-                  <CartIcon />
-                  Add to cart
-                </Button>
-              </ButtonWrapper>
-            </div>
+              <Button size="small" onClick={addFeaturedToCart}>
+                <CartIcon></CartIcon>
+                Add to cart
+              </Button>
+            </ButtonWrapper>
+            <ImageWrapper className="">
+              <img src={product.images[0]} alt="image" />
+            </ImageWrapper>
+            s
           </Column>
-
-          <div className="">
-            <img src={product.images[0]} alt="image" />
-          </div>
         </ColumnWrapper>
       </Center>
     </Bg>

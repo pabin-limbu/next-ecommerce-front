@@ -6,45 +6,73 @@ import Link from "next/link";
 import { CartContext } from "./CartContext";
 
 const WhiteBox = styled(Link)`
-  background-color: #fff;
-  padding: 20px;
-  height: 120px;
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
+  height: 200px;
+  width: 100%;
+  background-color: white;
+`;
+
+const ImageWrapper = styled.div`
+  width: 70%;
+  height: 200px;
+
   img {
-    max-width: 100%;
-    max-height: 80px;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
   }
 `;
 
 const Title = styled(Link)`
-  font-weight: normal;
-  font-size: 0.9rem;
-  margin: 0;
   text-decoration: none;
-  color: inherit;
+  color: black;
+  text-transform: capitalize;
 `;
 
 const ProductInfoBox = styled.div`
-  margin-top: 10px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 `;
 
 const PriceRow = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+
   margin-top: 2px;
 `;
 
-const Price = styled.div`
+const Price = styled.p`
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
 `;
 
-const ProductWrapper = styled.div``;
+const ProductWrapper = styled.div`
+  width: 100%;
+  height: 305px;
+
+  -webkit-box-shadow: 1px 1px 13px -3px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 1px 1px 13px -3px rgba(0, 0, 0, 0.64);
+  box-shadow: 1px 1px 13px -3px rgba(0, 0, 0, 0.64);
+  border-radius: 5px;
+`;
+
+const BtnAddToCart = styled.button`
+  width: 95%;
+  padding: 5px;
+  background-color: #e9aa16;
+  border-color: #fccb4e;
+  border-radius: 2px;
+  margin-top: 4px;
+  font-weight: bold;
+`;
+
 export default function ProductBox({ _id, title, description, price, images }) {
   const { addProduct } = useContext(CartContext);
 
@@ -52,19 +80,19 @@ export default function ProductBox({ _id, title, description, price, images }) {
   return (
     <ProductWrapper>
       <WhiteBox href={url}>
-        <div className="">
+        <ImageWrapper>
           <img src={images[0]} alt="" />
-        </div>
+        </ImageWrapper>
       </WhiteBox>
 
       <ProductInfoBox>
         <Title href={url}>{title}</Title>
 
         <PriceRow>
-          <Price className="">${price}</Price>
-          <Button primary={1} outline={1} onClick={() => addProduct(_id)}>
+          <Price className="">HK${price}</Price>
+          <BtnAddToCart onClick={() => addProduct(_id)}>
             Add to cart
-          </Button>
+          </BtnAddToCart>
         </PriceRow>
       </ProductInfoBox>
     </ProductWrapper>

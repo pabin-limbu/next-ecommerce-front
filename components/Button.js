@@ -12,59 +12,109 @@ export const ButtonStyle = css`
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   background: transparent;
-  color: white;
+  color: black;
   svg {
-    height: 40px;
+    ${"" /* color: red */}
   }
 
+  //svg size
+  ${(props) => {
+    switch (props.size) {
+      case "small":
+        return css`
+          svg {
+            height: 20px;
+          }
+        `;
+
+      case "medium":
+        return css`
+          svg {
+            height: 40px;
+          }
+        `;
+
+      case "large":
+        return css`
+          svg {
+            height: 60px;
+          }
+        `;
+
+      default:
+        return css`
+          svg {
+            height: 40px;
+          }
+        `;
+    }
+  }}
+  //svg Color
+  ${(props) => {
+    return css`
+      color: ${props.color};
+    `;
+  }}
+
   //if props has white and no outilne.
-  ${(props) =>
+  ${
+    "" /* ${(props) =>
     props.white &&
     !props.outline &&
     css`
       background-color: #fff;
       color: #000;
-    `}
+    `} */
+  }
 
   //if props has Black and no outilne.
-  ${(props) =>
+  ${
+    "" /* ${(props) =>
     props.black &&
     !props.outline &&
     css`
       background-color: #000;
       color: #fff;
-    `}
+    `} */
+  }
 
   // for outline
-  ${(props) =>
+  ${
+    "" /* ${(props) =>
     props.white &&
     props.outline &&
     css`
       background-color: transparent;
       color: #fff;
       border: 1px solid white;
-    `}
+    `} */
+  }
 
 // if props has primary
-${(props) =>
+${
+    "" /* ${(props) =>
     props.primary &&
     !props.outline &&
     css`
       background-color: ${primary};
       color: #fff;
       border: 1px solid ${primary};
-    `}
-${(props) =>
+    `} */
+  }
+${
+    "" /* ${(props) =>
     props.primary &&
     props.outline &&
     css`
       background-color: transparent;
       color: ${primary};
       border: 1px solid ${primary};
-    `}
+    `} */
+  }
 
   // if props.size is l
-${(props) =>
+${
+    "" /* ${(props) =>
     props.size === "l" &&
     css`
       font-size: 1.2rem;
@@ -72,15 +122,18 @@ ${(props) =>
       svg {
         height: 20px;
       }
-    `}
+    `} */
+  }
 //block
-${(props) =>
+${
+    "" /* ${(props) =>
     props.block &&
     css`
       display: block;
       width: 100%;
       border-radius: 0;
-    `}
+    `} */
+  }
 `;
 
 const StyledButton = styled.button`

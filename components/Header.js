@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Center from "./Center";
 import { CartContext } from "./CartContext";
@@ -10,6 +10,7 @@ import CartIcon from "./icons/CartIcon";
 import MenuIcon from "./icons/MenuIcon";
 import logoMobile from "@/public/next.svg";
 import Image from "next/image";
+import { device } from "@/util/breakpoints";
 
 const StyledHeader = styled.header`
   background-color: #161314;
@@ -25,11 +26,20 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 20px 0px;
+  @media ${device.tablet} {
+    padding: 10px 0px;
+  }
 `;
 
 const StyledNav = styled.nav`
   display: none;
   gap: 15px;
+  justify-content: center;
+  align-items: center;
+
+  @media ${device.tablet} {
+    display: flex;
+  }
 `;
 
 const NavLink = styled(Link)`
@@ -53,6 +63,10 @@ const CartStyledButton = styled.button`
   svg {
     height: 30px;
   }
+
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 
 const StyledCartIndicator = styled.span`
@@ -74,9 +88,29 @@ const StyledLink = styled(Link)`
   color: white;
 `;
 
+const ResponsiveStyledDiv = styled.div`
+  display: block;
+  @media ${device.tablet} {
+    display: none;
+  }
+`;
+const LogoWrapperMobile = styled.div`
+  display: block;
+  @media ${device.tablet} {
+    display: none;
+  }
+`;
+const LogoWrapperTablet = styled.div`
+  display: none;
+  @media ${device.tablet} {
+    display: block;
+  }
+`;
+
 export default function Header() {
   const { cartProducts } = useContext(CartContext);
   const [show, setShow] = useState(false);
+
   function toggleSideNav() {
     setShow((prev) => !prev);
   }
@@ -84,11 +118,18 @@ export default function Header() {
     <StyledHeader>
       <Center view={"full"}>
         <Wrapper>
-          <Button onClick={toggleSideNav}>
-            <MenuIcon />
-          </Button>
-          <SideNav show={show} toggleSideNav={toggleSideNav} />
-          <Image width={150} height={50} src={"/logoMobile.png"} alt="logo" />
+          <ResponsiveStyledDiv>
+            <Button color="white" onClick={toggleSideNav}>
+              <MenuIcon />
+            </Button>
+          </ResponsiveStyledDiv>
+          <SideNav show={show ? 1 : 0} toggleSideNav={toggleSideNav} />
+          <LogoWrapperMobile>
+            <Image width={150} height={50} src={"/logoMobile.png"} alt="logo" />
+          </LogoWrapperMobile>
+          <LogoWrapperTablet>
+            <Image width={100} height={100} src={"/logoOne.png"} alt="logo" />
+          </LogoWrapperTablet>
           <CartStyledButton>
             <StyledLink href={"/cart"}>
               <CartIcon />

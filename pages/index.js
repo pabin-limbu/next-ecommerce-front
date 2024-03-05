@@ -9,8 +9,8 @@ export default function HomePage({ featuredProduct, newProduct }) {
   return (
     <div>
       <Header />
-      {/* <Featured product={featuredProduct} /> */}
-      {/* <NewProducts products={newProduct} /> */}
+      <Featured product={featuredProduct} />
+      <NewProducts products={newProduct} />
     </div>
   );
 }

@@ -3,25 +3,19 @@ import css from "styled-jsx/css";
 import Button from "./Button";
 import CloseIcon from "./icons/CloseIcon";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 //styled component for sidenav
 const SideNavContainer = styled.div`
-  width: 0%;
+  width: ${(props) => (props.show ? "100%" : "0%")};
   height: 100%;
+  background-color: rgba(22, 19, 20, 0.9);
   position: absolute;
   top: 0;
   left: 0;
   transition: 0.5s ease;
-  /* background-color: #161314; */
   overflow: hidden;
   z-index: 99;
-
-  ${(props) =>
-    props.show == true &&
-    css`
-      width: 100%;
-      max-width: 100%;
-    `}
 `;
 
 const LinkWrapper = styled.div`
@@ -33,41 +27,44 @@ const LinkWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
   box-sizing: border-box;
+  background-color: rgba(22, 19, 20, 0.9);
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  font-size: large;
+  font-size: larger;
   font-weight: bold;
   color: white;
-  width: 100px;
+  width: 200px;
+  text-align: center;
+  letter-spacing: 0.2rem;
 `;
 
 const BtnCloseWrapperDiv = styled.div`
   height: 5%;
   position: relative;
+  padding-bottom: 100px;
+  background-color: black;
 `;
 
-const TestDiv = styled.div`
-  position: relative;
-  background-color: rebeccapurple;
-`;
 export default function SideNav({ show, toggleSideNav }) {
-  //   console.log(show);
-  //   if (show) {
-  //     document.getElementsByTagName("body")[0].style.overflow = "hidden";
-  //   } else {
-  //     document.getElementsByTagName("body")[0].style.overflow = "auto";
-  //   }
-
-  // use document in use effect.
+  useEffect(() => {
+    if (show) {
+      document.getElementsByTagName("body")[0].style.overflow = "hidden";
+    } else {
+      document.getElementsByTagName("body")[0].style.overflow = "auto";
+    }
+  }, [show]);
+  function handleShrink() {
+    setShrink((prev) => !prev);
+  }
 
   return (
     <SideNavContainer show={show}>
       <BtnCloseWrapperDiv className="">
-        <Button onClick={toggleSideNav}>
+        <Button color="white" onClick={toggleSideNav}>
           <CloseIcon />
         </Button>
       </BtnCloseWrapperDiv>
