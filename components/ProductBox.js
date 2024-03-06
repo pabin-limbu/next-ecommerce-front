@@ -84,10 +84,8 @@ export default function ProductBox({ _id, title, description, price, images }) {
           <img src={images[0]} alt="" />
         </ImageWrapper>
       </WhiteBox>
-
       <ProductInfoBox>
         <Title href={url}>{title}</Title>
-
         <PriceRow>
           <Price className="">HK${price}</Price>
           <BtnAddToCart onClick={() => addProduct(_id)}>

@@ -13,9 +13,6 @@ export const ButtonStyle = css`
   font-weight: 400;
   background: transparent;
   color: black;
-  svg {
-    ${"" /* color: red */}
-  }
 
   //svg size
   ${(props) => {

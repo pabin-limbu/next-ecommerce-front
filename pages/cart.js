@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import { CartContext } from "@/components/CartContext";
 import Center from "@/components/Center";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Input from "@/components/Input";
 import Table from "@/components/Table";
@@ -9,16 +10,28 @@ import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 
 const ColumnWrapper = styled.div`
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1.3fr 0.7fr;
   gap: 40px;
   margin-top: 40px;
+  min-height: 60vh; */
+  display: flex;
+  flex-direction: column;
 `;
 
 const Box = styled.div`
   background-color: #fff;
   border-radius: 10px;
   padding: 30px;
+  max-height: 60vh;
+  overflow: scroll;
+  margin-top: 20px;
+`;
+const InfoBox = styled.div`
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: 20px;
 `;
 
 const ProductInfoCell = styled.td`
@@ -49,6 +62,23 @@ const QuantityLabel = styled.span`
 const CityHolder = styled.div`
   display: flex;
   gap: 5px;
+`;
+
+const TotalPrice = styled.p`
+  font-weight: bold;
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: lightgray;
+`;
+
+const CheckOutBtn = styled.button`
+  padding: 10px;
+  background-color: green;
+  font-weight: bold;
+  color: white;
+  border-color: white;
+  margin-top: 20px;
 `;
 
 export default function CartPage() {
@@ -133,7 +163,7 @@ export default function CartPage() {
       <Center>
         <ColumnWrapper>
           <Box>
-            <h2>Cart</h2>
+            <h2>cart</h2>
             {!cartProducts?.length && (
               <div className="">
                 <p>Your cart is empty</p>
@@ -183,19 +213,14 @@ export default function CartPage() {
                       </tr>
                     );
                   })}
-
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td>{total}</td>
-                  </tr>
                 </tbody>
               </Table>
             )}
+            <TotalPrice>TOTAL PRICE : HK${total}</TotalPrice>
           </Box>
 
           {cartProducts?.length !== 0 && (
-            <Box>
+            <InfoBox>
               <h2>Order information</h2>
 
               <Input
@@ -242,13 +267,14 @@ export default function CartPage() {
                 name="country"
                 onChange={(event) => setCountry(event.target.value)}
               />
-              <Button black={1} block={1} onClick={goToPayment}>
+              <CheckOutBtn black={1} block={1} onClick={goToPayment}>
                 Continue to checkout
-              </Button>
-            </Box>
+              </CheckOutBtn>
+            </InfoBox>
           )}
         </ColumnWrapper>
       </Center>
+      <Footer />
     </>
   );
 }
