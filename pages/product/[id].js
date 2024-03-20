@@ -12,12 +12,13 @@ import styled from "styled-components";
 
 const ColWrapper = styled.div`
   min-height: 65vh;
+  /* background-color: red; */
 `;
 
 const Box = styled.div`
-  background-color: #fff;
+  /* background-color: blue; */
   border-radius: 10px;
-  padding: 30px;
+  padding: 10px;
 `;
 
 const PriceRow = styled.div`
@@ -45,6 +46,7 @@ const StyledTable = styled.table`
 
 function ProductsPage({ product }) {
   const { addProduct } = useContext(CartContext);
+  console.log(product);
 
   return (
     <div>
@@ -57,57 +59,23 @@ function ProductsPage({ product }) {
           </Box>
           <div>
             <Title>{product.title}</Title>
-            <Description>
-              {product.description} Lorem ipsum, dolor sit amet consectetur
-              adipisicing elit. Reiciendis illum at rerum ut, harum dolores in
-              possimus suscipit architecto voluptatum veniam magni laudantium
-              aliquam, accusamus molestiae impedit quasi facilis aut dignissimos
-              eius accusantium. Provident repudiandae architecto voluptatibus
-              beatae ad aliquam quia ullam, natus fuga voluptate perferendis
-              totam distinctio assumenda hic sunt maxime, corporis similique.
-              Ducimus dolore voluptatibus accusamus nobis obcaecati repellat,
-              repellendus laborum iusto molestias sit fugit eos cupiditate
-              corrupti? Explicabo quisquam, inventore tempore asperiores amet,
-              omnis modi incidunt aliquam temporibus est vitae et, commodi eos
-              enim debitis perspiciatis unde voluptatibus. Labore voluptatem
-              aspernatur, excepturi adipisci odio distinctio quod temporibus.
-            </Description>
+            <Description>{product.description}</Description>
 
             <StyledTable>
               <thead>
-                <tr>
+                <th>
                   <td>Specification</td>
-                </tr>
+                </th>
               </thead>
               <tbody>
-                <tr>
-                  <td>name</td>
-                  <td>Camera</td>
-                </tr>
-                <tr>
-                  <td>name</td>
-                  <td>Camera</td>
-                </tr>
-                <tr>
-                  <td>name</td>
-                  <td>Camera</td>
-                </tr>
-                <tr>
-                  <td>name</td>
-                  <td>Camera</td>
-                </tr>
-                <tr>
-                  <td>name</td>
-                  <td>Camera</td>
-                </tr>
-                <tr>
-                  <td>name</td>
-                  <td>Camera</td>
-                </tr>
-                <tr>
-                  <td>name</td>
-                  <td>Camera</td>
-                </tr>
+                {product.stats.map((spec, index) => {
+                  return (
+                    <tr key={index}>
+                      <td>{spec.name}</td>
+                      <td>{spec.value}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </StyledTable>
             <PriceRow>

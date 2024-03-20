@@ -18,7 +18,7 @@ export default function HomePage({ featuredProduct, newProduct }) {
 }
 
 export async function getServerSideProps() {
-  const feturedProductID = "65aa277ed66e0d9915ac5290";
+  const feturedProductID = "65f2a1b6831f2ec7265b8e4b";
   await mongooseConect();
   const featuredProduct = await Product.findById(feturedProductID); // product is a mongodb object which is not accepted as props. so change it in string and change it into json.
   //recent product

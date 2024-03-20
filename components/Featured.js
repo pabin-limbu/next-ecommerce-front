@@ -27,6 +27,7 @@ const Column = styled.div``;
 const Title = styled.h2`
   text-align: center;
   color: black;
+  margin-bottom: 10px;
 `;
 
 const Desc = styled.p`
@@ -34,6 +35,11 @@ const Desc = styled.p`
   font-weight: 100;
   font-size: small;
   text-align: center;
+  max-height: 77px;
+  overflow: hidden;
+  @media ${device.tablet} {
+    max-height: 100%;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -48,7 +54,7 @@ const ImageWrapper = styled.div`
   justify-content: center;
   padding: 20px 0;
   img {
-    max-width: 70%;
+    min-width: 50%;
   }
 
   @media ${device.tablet} {
@@ -70,12 +76,9 @@ export default function Featured({ product }) {
         <ColumnWrapper>
           <Column>
             <Title>{product.title}</Title>
-            <Desc>
-              {product.description} Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Maxime, soluta.
-            </Desc>
+            <Desc>{product.description}</Desc>
             <ButtonWrapper>
-              <ButtonLink color="blue" href={"/products/" + product._id}>
+              <ButtonLink color="blue" href={"/product/" + product._id}>
                 read more
               </ButtonLink>
 

@@ -8,7 +8,9 @@ const Image = styled.img`
 
 const BigImage = styled.img`
   max-width: 100%;
-  max-height: 200px;
+  min-height: 300px;
+  object-fit: cover;
+  max-height: 400px;
 `;
 
 const ImageButtons = styled.div`

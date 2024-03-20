@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Input from "@/components/Input";
 import Table from "@/components/Table";
 import axios from "axios";
+import { Router, useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 
@@ -92,6 +93,7 @@ export default function CartPage() {
   const [isSccess, setIsSuccess] = useState(false);
   const { cartProducts, addProduct, removeProduct, clearCart } =
     useContext(CartContext);
+  const router = useRouter();
 
   useEffect(() => {
     if (cartProducts.length > 0) {
@@ -216,7 +218,18 @@ export default function CartPage() {
                 </tbody>
               </Table>
             )}
-            <TotalPrice>TOTAL PRICE : HK${total}</TotalPrice>
+
+            {cartProducts.length > 0 ? (
+              <TotalPrice>TOTAL PRICE : HK${total}</TotalPrice>
+            ) : (
+              <button
+                onClick={() => {
+                  router.push("/");
+                }}
+              >
+                Back to shopping
+              </button>
+            )}
           </Box>
 
           {cartProducts?.length !== 0 && (
