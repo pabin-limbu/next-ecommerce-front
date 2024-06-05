@@ -130,6 +130,11 @@ const ViewMoreBtn = styled(Link)`
   border: 1px solid grey;
   border-radius: 10px;
   padding: 10px 20px;
+  margin-top: 10px;
+`;
+
+const BtnContainer = styled.div`
+  margin-top: 30px;
 `;
 
 function VintagePage({ vintageProduct }) {
@@ -175,9 +180,9 @@ function VintagePage({ vintageProduct }) {
           );
         })}
       </ContainerDiv>
-      <div className="btnViewMore">
+      <BtnContainer>
         <ViewMoreBtn href={"/products"}>View more</ViewMoreBtn>
-      </div>
+      </BtnContainer>
     </Wrapper>
   );
 }
