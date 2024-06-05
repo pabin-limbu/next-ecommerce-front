@@ -7,13 +7,15 @@ const StyledProductGrid = styled.div`
   width: 100%;
   height: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: 1fr;
+  gap: 30px;
+
+  padding-top: 30px;
   @media ${device.tablet} {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   @media ${device.laptop} {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 `;
 

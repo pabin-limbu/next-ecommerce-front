@@ -2,18 +2,15 @@ import Center from "@/components/Center";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ProductGrid from "@/components/ProductGrid";
-import Title from "@/components/Title";
 import { mongooseConect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
 import React from "react";
-import styled from "styled-components";
 
 export default function ProductsPage({ products }) {
   return (
     <div>
       <Header></Header>
       <Center>
-        <Title>All products</Title>
         <ProductGrid products={products}></ProductGrid>
       </Center>
       <Footer />

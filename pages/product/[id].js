@@ -1,4 +1,3 @@
-import Button from "@/components/Button";
 import { CartContext } from "@/components/CartContext";
 import Center from "@/components/Center";
 import Footer from "@/components/Footer";
@@ -46,7 +45,6 @@ const StyledTable = styled.table`
 
 function ProductsPage({ product }) {
   const { addProduct } = useContext(CartContext);
-  console.log(product);
 
   return (
     <div>
@@ -63,9 +61,9 @@ function ProductsPage({ product }) {
 
             <StyledTable>
               <thead>
-                <th>
-                  <td>Specification</td>
-                </th>
+                <tr>
+                  <th>Specification</th>
+                </tr>
               </thead>
               <tbody>
                 {product.stats.map((spec, index) => {

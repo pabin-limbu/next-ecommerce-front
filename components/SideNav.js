@@ -7,10 +7,10 @@ import { useEffect, useState } from "react";
 
 //styled component for sidenav
 const SideNavContainer = styled.div`
-  width: ${(props) => (props.show ? "100%" : "0%")};
+  width: ${(props) => (props.show === "true" ? "100%" : "0%")};
   height: 100%;
   background-color: rgba(22, 19, 20, 0.9);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   transition: 0.5s ease;
@@ -62,7 +62,7 @@ export default function SideNav({ show, toggleSideNav }) {
   }
 
   return (
-    <SideNavContainer show={show}>
+    <SideNavContainer show={show ? "true" : "false"}>
       <BtnCloseWrapperDiv className="">
         <Button color="white" onClick={toggleSideNav}>
           <CloseIcon />

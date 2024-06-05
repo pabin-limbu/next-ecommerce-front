@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export default function CloseIcon({ className = "w-6 h-6" }) {
-  const StyledCloseIcon = styled.svg`
-    position: absolute;
-    top: 10px;
-    right: 0px;
-  `;
+const StyledCloseIcon = styled.svg`
+  position: absolute;
+  top: 10px;
+  right: 0px;
+`;
 
+export default function CloseIcon({ className = "w-6 h-6" }) {
   return (
     <StyledCloseIcon
       xmlns="http://www.w3.org/2000/svg"

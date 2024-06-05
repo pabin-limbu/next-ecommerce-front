@@ -48,7 +48,7 @@ function ProductImages({ images }) {
         {images.map((image) => {
           return (
             <ImageButton
-              active={image === activeImage}
+              active={image === activeImage ? 1 : 0}
               onClick={() => {
                 setActiveImage(image);
               }}
