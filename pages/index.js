@@ -24,8 +24,8 @@ export default function HomePage({
         <title>Vintage Lens</title>
       </Head>
       <Header />
-
       <BannersCarousel banners={banners} options={OPTIONS} />
+
       <VintagePage vintageProduct={vintageProduct} />
       <HighLightedProductCarousel
         products={highlightedProduct}

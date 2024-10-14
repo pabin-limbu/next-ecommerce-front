@@ -5,13 +5,20 @@ import ProductGrid from "@/components/ProductGrid";
 import { mongooseConect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
 import React from "react";
+import styled from "styled-components";
+
+const ContainerDiv = styled.div`
+  min-height: 80vh;
+`;
 
 export default function ProductsPage({ products }) {
   return (
     <div>
       <Header></Header>
       <Center>
-        <ProductGrid products={products}></ProductGrid>
+        <ContainerDiv>
+          <ProductGrid products={products}></ProductGrid>
+        </ContainerDiv>
       </Center>
       <Footer />
     </div>

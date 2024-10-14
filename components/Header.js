@@ -8,7 +8,6 @@ import Button from "./Button";
 import CartIcon from "./icons/CartIcon";
 import MenuIcon from "./icons/MenuIcon";
 import { device } from "@/util/breakpoints";
-import SearchIcon from "./icons/SearchIcon";
 
 const StyledHeader = styled(({ isSticky, ...rest }) => <header {...rest} />)`
   background-color: ${(props) =>
@@ -68,14 +67,14 @@ const CartStyledButton = styled.button`
 `;
 
 const StyledCartIndicator = styled.span`
-  background-color: #fccb4e;
+  background-color: red;
   border-radius: 100%;
   padding: 7px;
   position: absolute;
   top: 0px;
-  left: 30px;
-  width: 18px;
-  height: 18px;
+  left: 20px;
+  width: 25px;
+  height: 25px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -107,8 +106,6 @@ const LogoWrapperTablet = styled.div`
     display: block;
   }
 `;
-
-const SvgLogoWrapper = styled.div``;
 
 export default function Header() {
   const { cartProducts } = useContext(CartContext);
@@ -171,9 +168,6 @@ export default function Header() {
                 />
               </svg>
             </Link>
-            <Button color="white">
-              <SearchIcon />
-            </Button>
           </LogoWrapperMobile>
           <LogoWrapperTablet>
             <svg
@@ -198,13 +192,13 @@ export default function Header() {
                 fill="#FFF7F7"
               />
             </svg>
-
-            {/* <img src="/logoOne.png" alt="logo" height={100} width={100} /> */}
           </LogoWrapperTablet>
           <CartStyledButton>
             <StyledLink href={"/cart"}>
               <CartIcon />
-              <StyledCartIndicator href={"/cart"}>10</StyledCartIndicator>
+              <StyledCartIndicator href={"/cart"}>
+                {cartProducts?.length}
+              </StyledCartIndicator>
             </StyledLink>
           </CartStyledButton>
           <StyledNav>

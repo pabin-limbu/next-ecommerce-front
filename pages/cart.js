@@ -33,6 +33,10 @@ const InfoBox = styled.div`
   border-radius: 10px;
   padding: 30px;
   margin-top: 20px;
+
+  @media only screen and (min-width: 1024px) {
+    width: 60%;
+  }
 `;
 
 const ProductInfoCell = styled.td`
@@ -80,6 +84,10 @@ const CheckOutBtn = styled.button`
   color: white;
   border-color: white;
   margin-top: 20px;
+`;
+
+const ContainerDiv = styled.div`
+  min-height: 80vh;
 `;
 
 export default function CartPage() {
@@ -147,13 +155,15 @@ export default function CartPage() {
       <>
         <Header />
         <Center>
-          <ColumnWrapper>
-            <Box>
-              <h1>Thanks For your order!</h1>
-              <p>we will email your order</p>
-            </Box>
-          </ColumnWrapper>
-          <button onClick={clearCart}>clear</button>
+          <ContainerDiv>
+            <ColumnWrapper>
+              <Box>
+                <h1>Thanks For your order!</h1>
+                <p>we will email your order</p>
+              </Box>
+            </ColumnWrapper>
+            <button onClick={clearCart}>clear</button>
+          </ContainerDiv>
         </Center>
       </>
     );
@@ -163,133 +173,137 @@ export default function CartPage() {
     <>
       <Header />
       <Center>
-        <ColumnWrapper>
-          <Box>
-            <h2>cart</h2>
-            {!cartProducts?.length && (
-              <div className="">
-                <p>Your cart is empty</p>
-              </div>
-            )}
+        <ContainerDiv>
+          <ColumnWrapper>
+            <Box>
+              <h2>cart</h2>
+              {!cartProducts?.length && (
+                <div className="">
+                  <p>Your cart is empty</p>
+                </div>
+              )}
 
-            {cartProducts.length > 0 && (
-              <Table>
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>Qnt</th>
-                    <th>price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {products.map((product) => {
-                    return (
-                      <tr key={product._id}>
-                        <ProductInfoCell>
-                          <ProductImageBox>
-                            <img
-                              fetchpriority="auto"
-                              src={product.images[0]}
-                              alt=""
-                            />
-                          </ProductImageBox>
-                          {product.title}
-                        </ProductInfoCell>
-                        <td>
-                          <Button
-                            onClick={() => lessOfThisProduct(product._id)}
-                          >
-                            -
-                          </Button>
-                          <QuantityLabel>
-                            {
-                              cartProducts.filter((id) => id === product._id)
-                                .length
-                            }
-                          </QuantityLabel>
-                          <Button onClick={() => moreOfTheProduct(product._id)}>
-                            +
-                          </Button>
-                        </td>
-                        <td>
-                          $
-                          {cartProducts.filter((id) => id === product._id)
-                            .length * product.price}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </Table>
-            )}
+              {cartProducts.length > 0 && (
+                <Table>
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Qnt</th>
+                      <th>price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {products.map((product) => {
+                      return (
+                        <tr key={product._id}>
+                          <ProductInfoCell>
+                            <ProductImageBox>
+                              <img
+                                fetchpriority="auto"
+                                src={product.images[0]}
+                                alt=""
+                              />
+                            </ProductImageBox>
+                            {product.title}
+                          </ProductInfoCell>
+                          <td>
+                            <Button
+                              onClick={() => lessOfThisProduct(product._id)}
+                            >
+                              -
+                            </Button>
+                            <QuantityLabel>
+                              {
+                                cartProducts.filter((id) => id === product._id)
+                                  .length
+                              }
+                            </QuantityLabel>
+                            <Button
+                              onClick={() => moreOfTheProduct(product._id)}
+                            >
+                              +
+                            </Button>
+                          </td>
+                          <td>
+                            $
+                            {cartProducts.filter((id) => id === product._id)
+                              .length * product.price}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </Table>
+              )}
 
-            {cartProducts.length > 0 ? (
-              <TotalPrice>TOTAL PRICE : HK${total}</TotalPrice>
-            ) : (
-              <button
-                onClick={() => {
-                  router.push("/");
-                }}
-              >
-                Back to shopping
-              </button>
-            )}
-          </Box>
+              {cartProducts.length > 0 ? (
+                <TotalPrice>TOTAL PRICE : HK${total}</TotalPrice>
+              ) : (
+                <button
+                  onClick={() => {
+                    router.push("/");
+                  }}
+                >
+                  Back to shopping
+                </button>
+              )}
+            </Box>
 
-          {cartProducts?.length !== 0 && (
-            <InfoBox>
-              <h2>Order information</h2>
+            {cartProducts?.length !== 0 && (
+              <InfoBox>
+                <h2>Order information</h2>
 
-              <Input
-                type="text"
-                placeholder="Name"
-                value={name}
-                name="name"
-                onChange={(event) => setName(event.target.value)}
-              />
-              <Input
-                type="text"
-                placeholder="Email"
-                value={email}
-                name="email"
-                onChange={(event) => setEmail(event.target.value)}
-              />
-              <CityHolder>
                 <Input
                   type="text"
-                  placeholder="City"
-                  value={city}
-                  name="city"
-                  onChange={(event) => setCity(event.target.value)}
+                  placeholder="Name"
+                  value={name}
+                  name="name"
+                  onChange={(event) => setName(event.target.value)}
                 />
                 <Input
                   type="text"
-                  placeholder="Postal code"
-                  value={postalCode}
-                  name="postalCode"
-                  onChange={(event) => setPostaCode(event.target.value)}
+                  placeholder="Email"
+                  value={email}
+                  name="email"
+                  onChange={(event) => setEmail(event.target.value)}
                 />
-              </CityHolder>
-              <Input
-                type="text"
-                placeholder="Street address"
-                value={streeAddress}
-                name="streeAddress"
-                onChange={(event) => setStreetAddress(event.target.value)}
-              />
-              <Input
-                type="text"
-                placeholder="Country"
-                value={country}
-                name="country"
-                onChange={(event) => setCountry(event.target.value)}
-              />
-              <CheckOutBtn black={1} block={1} onClick={goToPayment}>
-                Continue to checkout
-              </CheckOutBtn>
-            </InfoBox>
-          )}
-        </ColumnWrapper>
+                <CityHolder>
+                  <Input
+                    type="text"
+                    placeholder="City"
+                    value={city}
+                    name="city"
+                    onChange={(event) => setCity(event.target.value)}
+                  />
+                  <Input
+                    type="text"
+                    placeholder="Postal code"
+                    value={postalCode}
+                    name="postalCode"
+                    onChange={(event) => setPostaCode(event.target.value)}
+                  />
+                </CityHolder>
+                <Input
+                  type="text"
+                  placeholder="Street address"
+                  value={streeAddress}
+                  name="streeAddress"
+                  onChange={(event) => setStreetAddress(event.target.value)}
+                />
+                <Input
+                  type="text"
+                  placeholder="Country"
+                  value={country}
+                  name="country"
+                  onChange={(event) => setCountry(event.target.value)}
+                />
+                <CheckOutBtn black={1} block={1} onClick={goToPayment}>
+                  Continue to checkout
+                </CheckOutBtn>
+              </InfoBox>
+            )}
+          </ColumnWrapper>
+        </ContainerDiv>
       </Center>
       <Footer />
     </>

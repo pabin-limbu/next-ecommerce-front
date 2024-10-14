@@ -25,22 +25,53 @@ const PriceRow = styled.div`
   gap: 20px;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 10px;
 `;
 
-const Description = styled.p``;
+const Description = styled.p`
+  font-weight: 100;
+  text-align: left;
+  background-color: white;
+  padding: 10px;
+`;
 
 const Price = styled.p`
-  font-weight: bold;
+  font-weight: 700;
 `;
 const StyledButton = styled.button`
-  background-color: green;
-  padding: 10px;
-  border: 1px solid black;
+  background-color: #f63409;
+  padding: 10px 20px;
+  border: 1px solid white;
   color: white;
+  border-radius: 7px;
+`;
+
+const TableWrapper = styled.div`
+  background-color: white;
+  margin-top: 30px;
+  min-height: 100px;
+  padding: 10px;
 `;
 
 const StyledTable = styled.table`
-  margin-top: 20px;
+  th {
+    padding-bottom: 15px;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: lightgrey;
+  }
+  tbody tr:nth-child(odd) {
+    background-color: #f4f4f4;
+  }
+  tbody tr td {
+    padding: 5px;
+    text-transform: capitalize;
+  }
+  tbody tr td:nth-child(even) {
+    width: 100%;
+  }
 `;
 
 function ProductsPage({ product }) {
@@ -58,26 +89,27 @@ function ProductsPage({ product }) {
           <div>
             <Title>{product.title}</Title>
             <Description>{product.description}</Description>
-
-            <StyledTable>
-              <thead>
-                <tr>
-                  <th>Specification</th>
-                </tr>
-              </thead>
-              <tbody>
-                {product.stats.map((spec, index) => {
-                  return (
-                    <tr key={index}>
-                      <td>{spec.name}</td>
-                      <td>{spec.value}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </StyledTable>
+            <TableWrapper>
+              <StyledTable>
+                <thead>
+                  <tr>
+                    <th>Specifications</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {product.stats.map((spec, index) => {
+                    return (
+                      <tr key={index}>
+                        <td>{spec.name}</td>
+                        <td>{spec.value}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </StyledTable>
+            </TableWrapper>
             <PriceRow>
-              <Price>hk${product.price}</Price>
+              <Price>Price hk$ : {product.price}</Price>
               <div className="">
                 <StyledButton onClick={() => addProduct(product._id)}>
                   Add to cart

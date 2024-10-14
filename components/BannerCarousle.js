@@ -50,12 +50,16 @@ const StyledLink = styled(Link)`
 const StyledEmbela = styled.div`
   max-width: 100%;
   width: 100%;
-  max-height: 500px;
-  height: 600px;
+  max-height: 400px;
+  height: 200px;
   margin: auto;
   background-color: gray;
   margin-top: 5px;
   position: relative;
+
+  @media (min-width: 992px) {
+    height: 400px;
+  }
 `;
 
 const StyledEmbelaViewport = styled.div`
