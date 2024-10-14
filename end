@@ -1,0 +1,65 @@
+[33mcommit a0dee1c9294f2303d1f320aa361dd176b5658471[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: pabin-limbu <changsu.pabin@gmail.com>
+Date:   Mon Oct 14 12:37:52 2024 +0800
+
+    maintaining banner view on different aspect ration
+
+[33mcommit 4cca026fb1013d9b60bfed66dedeb724433828a1[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: pabin-limbu <changsu.pabin@gmail.com>
+Date:   Wed Jun 5 20:10:37 2024 +0800
+
+    padding btn
+
+[33mcommit f9c09d98ce046b9a09c912ed4b34aace813374b1[m
+Author: pabin-limbu <changsu.pabin@gmail.com>
+Date:   Wed Jun 5 20:01:42 2024 +0800
+
+    added vintage page story and styling of the product box
+
+[33mcommit 5b7202622ed001dc40ab96df795798f2f212de16[m
+Author: pabin-limbu <changsu.pabin@gmail.com>
+Date:   Wed Mar 20 15:37:29 2024 +0800
+
+    featured product specification table added
+
+[33mcommit 108a6b45ec4f54c1a0d5e74df1846574621d8149[m
+Author: pabin-limbu <changsu.pabin@gmail.com>
+Date:   Wed Mar 6 17:02:51 2024 +0800
+
+    responsive design added to cart pahe and footer page added in the app
+
+[33mcommit 7556edd578b38382980e0b563e8c52ab51ddae06[m
+Author: pabin-limbu <changsu.pabin@gmail.com>
+Date:   Tue Mar 5 22:28:19 2024 +0800
+
+    responsive design implemented to product models
+
+[33mcommit 48134bc77c66f6926620fbf986bc5b79cc21b411[m
+Author: pabin-limbu <changsu.pabin@gmail.com>
+Date:   Mon Mar 4 22:09:55 2024 +0800
+
+    implemented side nav for smal device, added new logo
+
+[33mcommit 02c74a804e65b6908a2059cb5730e28871a80519[m
+Author: pabin-limbu <changsu.pabin@gmail.com>
+Date:   Wed Feb 28 20:22:18 2024 +0800
+
+    commenting console log
+
+[33mcommit 41a30494fdcb55ddb881f5cac46648a50debb18d[m
+Author: pabin-limbu <changsu.pabin@gmail.com>
+Date:   Wed Feb 28 18:11:18 2024 +0800
+
+    removing env
+
+[33mcommit 557b4fd3c36002fae64ab00cdaf90146feb1b6ec[m
+Author: pabin-limbu <changsu.pabin@gmail.com>
+Date:   Mon Feb 26 17:01:40 2024 +0800
+
+    commiting semi completed next app
+
+[33mcommit c1738c2ad780014d459528989805bf625abcce83[m
+Author: pabin-limbu <changsu.pabin@gmail.com>
+Date:   Fri Jan 26 13:59:11 2024 +0800
+
+    Initial commit from Create Next App
