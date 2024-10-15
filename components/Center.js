@@ -7,6 +7,7 @@ const StyledDiv = styled.div`
   max-width: 80%;
   margin: 0 auto;
   padding: 0 20px;
+
   overflow: hidden;
   @media ${device.mobile_S} {
     max-width: 100%;

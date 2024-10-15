@@ -18,11 +18,13 @@ body{
 .embla__button--prev{
   position: absolute;
   top: 50%;
+  transform: translate(0%, -50%);
 }
 .embla__button--next{
   position: absolute;
   top: 50%;
   right: 0;
+  transform: translate(0%, -50%);
 }
 
 .embla__button {

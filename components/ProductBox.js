@@ -9,8 +9,7 @@ const ProductWrapper = styled.div`
   background-color: white;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-
+  padding: 10px;
   -webkit-box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.22);
   -moz-box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.22);
   box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.22);
@@ -18,8 +17,9 @@ const ProductWrapper = styled.div`
 
 const ImageWrapper = styled.div`
   width: 100%;
-  height: 300px;
+  height: auto;
   margin-top: 20px;
+  min-height: 200px; // i am here .
 
   img {
     height: 100%;

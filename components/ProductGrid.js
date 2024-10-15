@@ -5,12 +5,12 @@ import { device } from "@/util/breakpoints";
 
 const StyledProductGrid = styled.div`
   width: 100%;
-  height: auto;
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 
-  padding-top: 30px;
   @media ${device.tablet} {
     grid-template-columns: 1fr 1fr;
   }

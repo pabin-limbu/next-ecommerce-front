@@ -8,7 +8,7 @@ import React from "react";
 import styled from "styled-components";
 
 const ContainerDiv = styled.div`
-  min-height: 80vh;
+min-height: 80vh;
 `;
 
 export default function ProductsPage({ products }) {

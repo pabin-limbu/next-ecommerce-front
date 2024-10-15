@@ -22,6 +22,8 @@ const StyledEmbla = styled.div`
   position: relative;
   background-color: rgb(245, 245, 245);
 
+  height: 300px;
+
   svg {
     color: red;
   }
@@ -30,7 +32,7 @@ const StyledEmbla = styled.div`
 const StyledViewport = styled.div`
   overflow: hidden;
   width: 100%;
-  height: auto;
+  height: 100%;
   margin: 0 auto;
 `;
 
@@ -39,6 +41,7 @@ const StyledContainer = styled.div`
   display: flex;
   touch-action: pan-y pinch-zoom;
   margin-left: calc(var(--slide-spacing) * -1);
+  height: 100%;
 
   @media (min-width: 750px) {
     margin-left: calc(var(--slide-spacing-sm) * -1);
@@ -49,6 +52,7 @@ const StyledContainer = styled.div`
 `;
 
 const StyledSlide = styled.div`
+  height: 100%;
   min-width: 0;
   flex: 0 0 var(--slide-size);
   padding-left: var(--slide-spacing);
@@ -62,53 +66,52 @@ const StyledSlide = styled.div`
     padding-left: var(--slide-spacing-lg);
   }
 `;
-
 const StyledSlidItems = styled.div`
-  height: auto;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 2%;
 `;
-
+const StyledSlideItemContainer = styled.div`
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.22);
+  box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.22);
+`;
+const ImageContainer = styled.div`
+  width: 100%;
+  height: 75%;
+  display: flex;
+`;
 const StyledImg = styled.img`
   width: 100%;
   height: auto;
-  object-fit: cover;
-`;
-
-const ImageContainer = styled.div`
-  width: 100%;
-  height: 400px;
-  background-color: rebeccapurple;
-  display: flex;
+  object-fit: contain;
 `;
 
 const StyledButton = styled(Link)`
   align-self: flex-end;
-  padding: 10px 15px;
-  margin-top: 15px;
-  border-radius: 5px;
+  padding: 7px 12px;
+  border-radius: 3px;
   background-color: black;
   color: white;
   text-decoration: none;
+  margin-top: 7px;
+  font-size: small;
 `;
 
 const StyledTitle = styled.h1`
   font-size: medium;
   font-weight: bold;
   padding-bottom: 10px;
+  height: 10%;
 `;
 
-const StyledSlideItemContainer = styled.div`
-  background-color: white;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  -webkit-box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.22);
-  -moz-box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.22);
-  box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.22);
-`;
 const StyledHeader = styled.h1`
   font-weight: lighter;
   padding-left: 10px;
@@ -136,13 +139,14 @@ const HighLightedProductCarousel = (props) => {
 
   return (
     <StyledEmbla className="embla">
-      <Seperator />
-      <StyledHeader>Highlighted Products</StyledHeader>
+      {/* <Seperator /> */}
+      {/* <StyledHeader>Highlighted Products</StyledHeader> */}
       <StyledViewport className="embla__viewport" ref={emblaRef}>
         <StyledContainer className="embla__container">
           {props.products?.map((product) => {
             return (
               <StyledSlide key={product._id} className="embla__slide">
+                {/* <div className="" style={{backgroundColor:"pink"}}>PABIN</div> */}
                 <StyledSlidItems className="embla__slide__number">
                   <StyledSlideItemContainer>
                     <StyledTitle>{product.title}</StyledTitle>
